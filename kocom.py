@@ -56,7 +56,7 @@ def init_mqttc():
     mqttc.on_subscribe = mqtt_on_subscribe
     mqttc.on_connect = mqtt_on_connect
     mqttc.on_disconnect = mqtt_on_disconnect
-    mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1) 
+    mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2) 
 
     if config.get('MQTT','mqtt_allow_anonymous') != 'True':
         logtxt = "[MQTT] connecting (using username and password)"
