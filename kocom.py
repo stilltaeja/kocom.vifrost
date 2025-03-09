@@ -52,11 +52,11 @@ room_h_dic = {'livingroom':'00', 'myhome':'00', 'room1':'01', 'room2':'02', 'roo
 # mqtt functions ----------------------------
 
 def init_mqttc():
+    mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2) 
     mqttc.on_message = mqtt_on_message
     mqttc.on_subscribe = mqtt_on_subscribe
     mqttc.on_connect = mqtt_on_connect
     mqttc.on_disconnect = mqtt_on_disconnect
-    mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2) 
 
     if config.get('MQTT','mqtt_allow_anonymous') != 'True':
         logtxt = "[MQTT] connecting (using username and password)"
